@@ -68,11 +68,12 @@ userSchema.methods.comparePassword = function(plainPassword) {
 userSchema.methods.generateToken = function() {
   return new Promise((resolve, reject) => {
     const user = this;
+    
     // jsonwebtoken을 이용해서 token을 생성하기
     const token = jwt.sign(user._id.toHexString(), 'secretToken');
-      // user._id + 'secretToken' = token
-  // -> 
-  // 'secretToken' -> user._id
+    // user._id + 'secretToken' = token
+    // -> 
+    // 'secretToken' -> user._id
 
     user.token = token;
     
