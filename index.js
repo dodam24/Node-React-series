@@ -53,7 +53,7 @@ app.post('/api/users/login', async (req, res) => {
       });
     }
 
-    // 요청된 이메일이 데이터베이스에 있다면 비밀번호가 맞는지 확인한다.
+    // 요청된 이메일이 데이터베이스에 있다면 비밀번호가 맞는 비밀번호인지 확인한다.
     const isMatch = await user.comparePassword(req.body.password);
 
     if(!isMatch) {
@@ -63,7 +63,7 @@ app.post('/api/users/login', async (req, res) => {
     // 비밀번호까지 맞다면 토큰을 생성한다. (JsonWebToken 라이브러리 이용)
     const userWithToken = await user.generateToken();
 
-    // 쿠키에 토큰을 저장한다.
+    // 토큰을 저장한다. (보통 쿠키, 로컬 스토리지 등에 저장하며, 여기서는 쿠키에 저장함)
     res.cookie("x_auth", userWithToken.token)
       .status(200)  // 요청이 성공했음을 나타내는 성공 응답 상태 코드
       .json({ loginSuccess: true, userId: user._id });
