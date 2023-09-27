@@ -72,6 +72,7 @@ app.post('/api/users/login', async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 // role이 0이면 일반 유저     role이 0이 아니면 관리자
 app.get('api/users/auth', auth, (req, res) => {
 
@@ -101,3 +102,7 @@ app.get('/api/users/logout', auth, (req, res) => {
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+=======
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+>>>>>>> 1a3b0811505fb9b551eebe08701e29ef3ab1e175
