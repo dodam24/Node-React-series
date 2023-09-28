@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const port = 3000
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const config = require('./config/key');
@@ -23,6 +22,10 @@ mongoose
 
 
 app.get('/', (req, res) => res.send('Hello World!'))
+
+app.get('/api/hello', (req, res) => {
+  res.send("Hello World!")
+})
 
 app.post('/api/users/register', async (req, res) => {
 
@@ -72,7 +75,6 @@ app.post('/api/users/login', async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
 // role이 0이면 일반 유저     role이 0이 아니면 관리자
 app.get('api/users/auth', auth, (req, res) => {
 
@@ -101,8 +103,6 @@ app.get('/api/users/logout', auth, (req, res) => {
   })
 })
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
-=======
+const port = 3000
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
->>>>>>> 1a3b0811505fb9b551eebe08701e29ef3ab1e175
