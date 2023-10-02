@@ -9,7 +9,7 @@ function RegisterPage(props) {
 
   const dispatch = useDispatch();
 
-
+  
   const [Email, setEmail] = useState("")
   const [Password, setPassword] = useState("")
   const [Name, setName] = useState("")
@@ -47,7 +47,6 @@ function RegisterPage(props) {
     dispatch(registerUser(body))
       .then(response => {
         if(response.payload.success) {
-          // props.history.push("/login")
           navigate('/login')
         } else {
             alert("Failed to sign up")

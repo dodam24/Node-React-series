@@ -9,7 +9,7 @@ function LandingPage(props) {
   // 요청을 서버로 보낸다.
   useEffect(() => {
     axios.get("/api/hello")
-          .then((response) => console.log(response.data));
+          .then((response) => { console.log(response.data) });
   }, []);
 
   const onClickHandler = () => {
